@@ -1,10 +1,6 @@
 import { useState, createContext, ReactNode } from "react";
-import { User } from "types/User";
-
-interface UserLoginData {
-    email: string;
-    password: string;
-}
+import { signIn } from "helpers/Auth";
+import { User, UserLoginData } from "types/User";
 
 interface AuthProviderProps {
     children: ReactNode;
@@ -22,6 +18,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
     const [user, setUser] = useState<User | null>(null);
 
     async function signIn(user: UserLoginData): Promise<boolean> {
+        const data = await signIn(user);
+
         return true;
     }
 
