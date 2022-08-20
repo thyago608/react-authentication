@@ -1,0 +1,27 @@
+.header-container {
+  margin-bottom: 2rem;
+  height: 7rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 1rem;
+
+  color: #d2d2d2;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.header-container-links {
+  display: flex;
+  gap: 4rem;
+}
+
+.header-container-links a {
+  color: inherit;
+}
+
+.header-container-links a:hover {
+  text-decoration: underline;
+}
