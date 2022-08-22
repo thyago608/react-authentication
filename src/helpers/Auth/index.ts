@@ -1,5 +1,5 @@
 import api from "services/api";
-import { UserLoginData } from "types/User";
+import { UserLoginData, UserData } from "types/User";
 
 export async function login(user: UserLoginData) {
   return {
@@ -12,14 +12,23 @@ export async function login(user: UserLoginData) {
   };
 }
 
-export async function logout() {
-  const response = await api.post("/logout");
+export async function logout(token: string) {}
 
-  return response.data;
+export async function validateToken(token: string): Promise<UserData | null> {
+  if (token === "5586a281bf35e8290d11f84c9fb720f0") {
+    return {
+      user: {
+        id: 53,
+        name: "Thyago Ribeiro",
+        email: "thyagoribeiro@gmail.com",
+      },
+      token: "5586a281bf35e8290d11f84c9fb720f0",
+    };
+  }
+
+  return null;
 }
 
-export async function validateToken(token: string) {
-  const response = await api.post("/validade", { token });
-
-  return response.data;
+export function handleTokenInStorage(token: string) {
+  localStorage.setItem("authToken", token);
 }

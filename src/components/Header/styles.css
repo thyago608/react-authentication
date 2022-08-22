@@ -16,3 +16,7 @@
 .header-header-container h2 {
   text-transform: uppercase;
 }
+
+.header-header-container button {
+  border: 0;
+}

@@ -3,8 +3,9 @@ import { useAuth } from "hooks/useAuth";
 
 export function Private() {
     const { data } = useAuth();
+    const userStorage = localStorage.getItem('authToken');
 
-    if (!data) {
+    if (!userStorage) {
         return <Navigate to="/" />
     }
 

@@ -1,14 +1,21 @@
 import { useAuth } from "hooks/useAuth";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./styles.css";
 
 export function Header() {
-    const { data } = useAuth();
+    const { data, signOut } = useAuth();
+    const navigate = useNavigate();
+
+    async function handleLogout() {
+        await signOut();
+
+        navigate("/");
+    }
 
     return (
         <header className="header-header-container">
             <h2>logo</h2>
-            {data && <Link to="/">Sair</Link>}
+            {data && <button onClick={handleLogout}>Sair</button>}
         </header>
     );
 }
