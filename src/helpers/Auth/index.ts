@@ -1,7 +1,7 @@
 import api from "services/api";
 import { UserLoginData } from "types/User";
 
-export async function signIn(user: UserLoginData) {
+export async function login(user: UserLoginData) {
   const response = await api.post("/signin", user);
 
   return response.data;
