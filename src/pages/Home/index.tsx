@@ -8,7 +8,7 @@ export function Home() {
     const inputEmailRef = useRef<HTMLInputElement>(null);
     const inputPasswordRef = useRef<HTMLInputElement>(null);
 
-    const { signIn, user } = useAuth();
+    const { signIn } = useAuth();
     const navigate = useNavigate();
 
     async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -24,13 +24,10 @@ export function Home() {
 
             const isLogged = await signIn(newUser);
 
-            console.log(user)
-
             if (isLogged) {
                 navigate('private');
             }
         }
-
     }
 
     return (

@@ -5,7 +5,7 @@ export async function login(user: UserLoginData) {
   return {
     user: {
       id: 53,
-      name: user.email.split("@")[0],
+      name: user.email,
       email: user.email,
     },
     token: "5586a281bf35e8290d11f84c9fb720f0",

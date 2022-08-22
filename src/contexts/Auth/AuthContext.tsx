@@ -7,7 +7,7 @@ interface AuthProviderProps {
 };
 
 interface AuthContextData {
-    user: UserData | null;
+    data: UserData | null;
     signIn: (user: UserLoginData) => Promise<boolean>;
     signOut: () => Promise<void>;
 }
@@ -15,13 +15,13 @@ interface AuthContextData {
 export const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 export function AuthProvider({ children }: AuthProviderProps) {
-    const [user, setUser] = useState<UserData | null>(null);
+    const [data, setData] = useState<UserData | null>(null);
 
     async function signIn(user: UserLoginData): Promise<boolean> {
         const data = await login(user);
 
         if (data.user && data.token) {
-            setUser({ user: data.user, token: data.token });
+            setData({ user: data.user, token: data.token });
             return true;
         }
 
@@ -30,11 +30,11 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
     async function signOut() {
         await logout();
-        setUser(null);
+        setData(null);
     }
 
     return (
-        <AuthContext.Provider value={{ user, signIn, signOut }}>
+        <AuthContext.Provider value={{ data, signIn, signOut }}>
             {children}
         </AuthContext.Provider>
     );
