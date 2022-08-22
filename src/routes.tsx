@@ -7,6 +7,7 @@ export function Navigation() {
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="private" element={<Private />} />
+            <Route path="*" element={<Home />} />
         </Routes>
     );
 }

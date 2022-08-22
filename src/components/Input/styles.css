@@ -1,11 +1,11 @@
-.input_container {
+.input-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 0.8rem;
 }
 
-.input_container input {
+.input-container input {
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 0.3rem;
 

@@ -2,9 +2,14 @@ import api from "services/api";
 import { UserLoginData } from "types/User";
 
 export async function login(user: UserLoginData) {
-  const response = await api.post("/signin", user);
-
-  return response.data;
+  return {
+    user: {
+      id: 53,
+      name: user.email.split("@")[0],
+      email: user.email,
+    },
+    token: "5586a281bf35e8290d11f84c9fb720f0",
+  };
 }
 
 export async function logout() {

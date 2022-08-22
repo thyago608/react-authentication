@@ -1,4 +1,4 @@
-.home_main_container {
+.home-main-container {
   min-height: calc(100vh - 7rem);
 
   display: flex;
@@ -6,12 +6,12 @@
   justify-content: center;
 }
 
-.home_form_container {
+.home-form-container {
   height: 250px;
   background: #111;
   border-radius: 0.4rem;
 
-  padding: 2rem;
+  padding: 1.5rem;
 
   display: flex;
   flex-direction: column;
@@ -19,16 +19,20 @@
   gap: 1rem;
 }
 
-.home_form_container button {
+.home-form-container button {
+  margin-top: 2rem;
+
   height: 2.4rem;
   border: 0;
 
-  background: rgba(255, 69, 0, 0.8);
+  background: rgba(255, 6, 138, 0.8);
   border-radius: 0.2rem;
 
   transition: filter 0.2s ease-in-out;
+
+  color: white;
 }
 
-.home_form_container button:hover {
+.home-form-container button:hover {
   filter: brightness(0.8);
 }

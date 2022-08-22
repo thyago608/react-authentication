@@ -7,7 +7,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 const InputBase: ForwardRefRenderFunction<HTMLInputElement, InputProps> = ({ label, name, ...rest }, ref) => {
     return (
-        <div className="input_container">
+        <div className="input-container">
             <label htmlFor={name}>{label}</label>
             <input id={name}{...rest} ref={ref} />
         </div>

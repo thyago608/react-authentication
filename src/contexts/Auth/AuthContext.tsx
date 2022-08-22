@@ -1,13 +1,13 @@
 import { useState, createContext, ReactNode } from "react";
 import { login, logout } from "helpers/Auth";
-import { User, UserLoginData } from "types/User";
+import { UserData, UserLoginData } from "types/User";
 
 interface AuthProviderProps {
     children: ReactNode;
 };
 
 interface AuthContextData {
-    user: User | null;
+    user: UserData | null;
     signIn: (user: UserLoginData) => Promise<boolean>;
     signOut: () => Promise<void>;
 }
@@ -15,13 +15,13 @@ interface AuthContextData {
 export const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 export function AuthProvider({ children }: AuthProviderProps) {
-    const [user, setUser] = useState<User | null>(null);
+    const [user, setUser] = useState<UserData | null>(null);
 
     async function signIn(user: UserLoginData): Promise<boolean> {
         const data = await login(user);
 
         if (data.user && data.token) {
-            setUser(data.user);
+            setUser({ user: data.user, token: data.token });
             return true;
         }
 
