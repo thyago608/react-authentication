@@ -1,0 +1,13 @@
+.input_container {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.input_container input {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.3rem;
+
+  padding: 0 0.7rem;
+  height: 1.7rem;
+}
